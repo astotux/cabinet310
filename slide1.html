@@ -117,17 +117,25 @@
 
 <body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
     <header class="sticky top-0 z-50 w-full glass border-b border-primary/10">
-        <div class="max-w-7xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-6 h-16 md:h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 md:gap-3">
                 <a href="#">
-                    <img src="./logo.svg" style="width: 100px;">
+                    <img src="./logo.svg" class="w-20 md:w-24 lg:w-28" alt="Logo">
                 </a>
             </div>
-            <div class="flex items-center gap-4">
-                <button class="px-5 py-2 text-sm font-bold text-slate-700">На главную</button>
+            <nav class="hidden md:flex items-center gap-6 lg:gap-10">
+                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
+                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
+                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./contacts.html">Контакты</a>
+            </nav>
+            <div class="flex items-center gap-3 md:gap-4">
+                <button
+                    class="gradient-bg px-4 md:px-6 py-2 md:py-2.5 rounded-lg md:rounded-xl text-white text-xs md:text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                    Записаться
+                </button>
             </div>
         </div>
-    </header>
+    </header>   
     <main class="max-w-5xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 py-12 max-[480px]:py-8 max-[320px]:py-6">
         <div class="mb-12">
             <div class="flex items-center justify-between relative">
