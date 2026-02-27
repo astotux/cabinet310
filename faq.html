@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#7a1ff9",
+            "accent-pink": "#FEB9E5",
+            "accent-purple": "#9F6DFC",
+            "background-light": "#f7f5f8",
+            "background-dark": "#170f23",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.5rem",
+            "3xl": "2rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #FEB9E5 0%, #9F6DFC 100%);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #FEB9E5 0%, #9F6DFC 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .faq-item {
+      @apply rounded-3xl border border-slate-200/80 dark:border-slate-800/70 bg-white/80 dark:bg-slate-900/50;
+    }
+  </style>
+  <title>Cabinet 310 — Вопрос-ответ</title>
+</head>
+
+<body
+  class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden relative">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="absolute top-[150px] left-[12%] size-[480px] bg-accent-purple/14 blur-[115px] rounded-full"></div>
+    <div class="absolute top-[700px] right-[6%] size-[420px] bg-accent-pink/12 blur-[108px] rounded-full"></div>
+    <div class="absolute top-[1100px] right-[8%] size-[400px] bg-accent-purple/11 blur-[100px] rounded-full"></div>
+    <div class="absolute top-[1650px] left-[10%] size-[450px] bg-accent-purple/13 blur-[112px] rounded-full"></div>
+    <div class="absolute top-[2200px] left-[15%] size-[440px] bg-accent-purple/13 blur-[108px] rounded-full"></div>
+    <div class="absolute top-[2800px] right-[12%] size-[390px] bg-accent-pink/11 blur-[105px] rounded-full"></div>
+  </div>
+  <header class="sticky top-0 z-50 w-full glass border-b border-primary/10">
+    <div class="max-w-7xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="./index.html">
+          <img src="./logo.svg" style="width: 100px;" alt="Cabinet 310" />
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="./contacts.html">Контакты</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="./faq.html">Вопрос-ответ</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="./index.html#services"
+          class="gradient-bg px-6 py-2.5 rounded-xl text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+          Записаться
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 py-12 max-[480px]:py-8 max-[320px]:py-6">
+    <section
+      class="mb-16 max-[480px]:mb-12 max-[320px]:mb-10 relative rounded-3xl overflow-hidden min-h-[280px] flex items-center p-10 max-[480px]:p-6 max-[320px]:p-5 bg-slate-900">
+      <div class="absolute inset-0 opacity-40 bg-center bg-cover"
+        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbP5eqjUkfFVfIH8HFT1kh5hhEQTlJ3PRPBbLYXlyRu8ZdO2Ee2jpZ0Bi5pWllFY2zrpra9G6p3yAt59h8WvJLxmWnO9dWTullMcWFxos6JpWSWRUqGYWM_c1s4fo6stJ-IKDAJvf6Mnt-qOo6oKjYH2O_7KJCZZutaTg4IehYKV32vHLlyjxpdlBA4_5G3t3-BC9YNVusFBdxTz-8l2H_Az5Zs3ak40bxVP7iF9AMaEynjIJz_lBvYT3g0lBybHAtIqGfN7T3wbc');">
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent"></div>
+
+      <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <img src="./star.svg" alt=""
+          class="absolute left-6 top-10 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 opacity-25 mix-blend-screen">
+        <img src="./star.svg" alt=""
+          class="absolute right-8 top-16 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 opacity-20 mix-blend-screen">
+        <img src="./star.svg" alt=""
+          class="absolute right-16 bottom-10 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 opacity-20 mix-blend-screen">
+      </div>
+
+      <div class="relative z-10 max-w-2xl text-white">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass bg-white/15 border border-white/25 text-xs font-bold uppercase tracking-widest mb-6">
+          <span class="material-symbols-outlined text-sm">help</span>
+          Вопрос-ответ
+        </div>
+        <h1 class="text-5xl max-[480px]:text-3xl max-[320px]:text-2xl font-black leading-[1.1] tracking-tight mb-4">
+          Частые вопросы <br class="hidden sm:block" />о <span class="text-gradient">Кабинет 310</span>
+        </h1>
+        <p class="text-slate-100/90 text-lg max-[480px]:text-base leading-relaxed max-w-xl">
+          Собрали для вас ответы на самые популярные вопросы о записи, стерильности и процедурах.
+        </p>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-7 space-y-4">
+        <details class="faq-item p-6 max-[480px]:p-5 max-[320px]:p-4 group" open>
+          <summary
+            class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span
+                class="size-9 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-base">event_available</span>
+              </span>
+              <h2 class="font-bold text-base sm:text-lg dark:text-white">
+                Как записаться на процедуру?
+              </h2>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform duration-200 shrink-0">
+              expand_more
+            </span>
+          </summary>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Вы можете оставить заявку через сайт, написать нам в мессенджер или позвонить по телефону.
+            Мы уточним желаемую услугу и подберём удобное время.
+          </div>
+        </details>
+
+        <details class="faq-item p-6 max-[480px]:p-5 max-[320px]:p-4 group">
+          <summary
+            class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span
+                class="size-9 rounded-2xl bg-accent-pink/15 text-accent-pink flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-base">health_and_safety</span>
+              </span>
+              <h2 class="font-bold text-base sm:text-lg dark:text-white">
+                Как вы обеспечиваете стерильность?
+              </h2>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform duration-200 shrink-0">
+              expand_more
+            </span>
+          </summary>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Мы используем только одноразовые расходные материалы и проводим многоступенчатую стерилизацию
+            инструментов в соответствии с санитарными нормами. Поверхности обрабатываются после каждого гостя.
+          </div>
+        </details>
+
+        <details class="faq-item p-6 max-[480px]:p-5 max-[320px]:p-4 group">
+          <summary
+            class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span
+                class="size-9 rounded-2xl bg-accent-purple/15 text-accent-purple flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-base">payments</span>
+              </span>
+              <h2 class="font-bold text-base sm:text-lg dark:text-white">
+                Какие способы оплаты доступны?
+              </h2>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform duration-200 shrink-0">
+              expand_more
+            </span>
+          </summary>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Вы можете оплатить услуги наличными, картой и переводом. Если вам нужен чек для отчётности — сообщите
+            администратору заранее.
+          </div>
+        </details>
+
+        <details class="faq-item p-6 max-[480px]:p-5 max-[320px]:p-4 group">
+          <summary
+            class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span
+                class="size-9 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-base">schedule</span>
+              </span>
+              <h2 class="font-bold text-base sm:text-lg dark:text-white">
+                Что если я опаздываю или не могу прийти?
+              </h2>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform duration-200 shrink-0">
+              expand_more
+            </span>
+          </summary>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Пожалуйста, предупредите нас как можно раньше. При опоздании более чем на 15 минут часть процедуры может
+            быть сокращена или перенесена — мы всегда стараемся найти комфортное решение.
+          </div>
+        </details>
+
+        <details class="faq-item p-6 max-[480px]:p-5 max-[320px]:p-4 group">
+          <summary
+            class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+            <div class="flex items-center gap-3">
+              <span
+                class="size-9 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-base">face_3</span>
+              </span>
+              <h2 class="font-bold text-base sm:text-lg dark:text-white">
+                Можно ли делать перманент при наличии аллергий?
+              </h2>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform duration-200 shrink-0">
+              expand_more
+            </span>
+          </summary>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            При склонности к аллергиям мы рекомендуем предварительную консультацию и патч-тест. Мастер подберёт
+            безопасные пигменты и честно расскажет о возможных рисках.
+          </div>
+        </details>
+      </div>
+
+      <div class="lg:col-span-5 space-y-6">
+        <div class="glass rounded-3xl p-7 max-[480px]:p-6 max-[320px]:p-5 border border-white/50 shadow-xl">
+          <h3 class="text-xl font-black mb-3 dark:text-white">Не нашли ответ?</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-5 leading-relaxed">
+            Напишите нам в мессенджер или оставьте заявку — мы подробно ответим на ваши вопросы и поможем выбрать
+            подходящую процедуру.
+          </p>
+          <a href="#"
+              class="gradient-bg text-white px-20 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-primary/30 hover:opacity-95 transition-opacity text-center">
+              Задать вопрос в ВК
+          </a>
+        </div>
+
+        <div class="service-card-glass rounded-3xl p-7 max-[480px]:p-6 max-[320px]:p-5">
+          <div class="flex items-start gap-4 mb-3">
+            <div class="size-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-base">info</span>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-1">Важно</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Конкретные рекомендации по подготовке и уходу после процедур вы получите от мастера на консультации —
+                они подбираются индивидуально.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-white py-16 ">
+    <div class="max-w-7xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="space-y-6">
+        <div class="flex items-center gap-3">
+          <a href="./index.html">
+            <img src="./logo.svg" style="width: 100px;" alt="Cabinet 310" />
+          </a>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Премиальная студия эстетики в центре города. Мы создаем безупречные образы, подчеркивая вашу индивидуальность
+          через искусство перманента и нейл-сервиса.
+        </p>
+      </div>
+      <div>
+        <h6 class="font-bold mb-6 text-slate-200">Навигация</h6>
+        <ul class="space-y-4 text-sm text-slate-400">
+          <li><a class="hover:text-white transition-colors" href="./index.html#about">О студии</a></li>
+          <li><a class="hover:text-white transition-colors" href="./index.html#services">Услуги</a></li>
+          <li><a class="hover:text-white transition-colors" href="./reviews.html">Отзывы</a></li>
+          <li><a class="hover:text-white transition-colors" href="./contacts.html">Контакты</a></li>
+          <li><a class="hover:text-white transition-colors" href="./faq.html">Вопрос-ответ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="font-bold mb-6 text-slate-200">Контакты</h6>
+        <div class="space-y-4 text-sm text-slate-400">
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-primary">location_on</span>
+            Ваш город, адрес студии
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-primary">call</span>
+            +7 (___) ___-__-__
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm text-primary">schedule</span>
+            Ежедневно: 10:00 — 21:00
+          </p>
+        </div>
+      </div>
+      <div>
+        <h6 class="font-bold mb-6 text-slate-200">Мы в соцсетях</h6>
+        <div class="flex gap-4 pt-1">
+          <a title="Мы в Telegram"
+            class="size-10 rounded-xl bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-lg">send</span>
+          </a>
+          <a title="Наш Instagram"
+            class="size-10 rounded-xl bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-lg">camera_alt</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="max-w-7xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 border-t border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+      <p>© 2026 Cabinet 310. Все права защищены.</p>
+      <p>С любовью к вашей красоте ✨</p>
+    </div>
+  </footer>
+</body>
+
+</html>

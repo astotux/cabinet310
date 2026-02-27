@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7a1ff9",
+                        "accent-pink": "#FEB9E5",
+                        "accent-purple": "#9F6DFC",
+                        "background-light": "#f7f5f8",
+                        "background-dark": "#170f23",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(159, 109, 252, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(254, 185, 229, 0.5); }
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #FEB9E5 0%, #9F6DFC 100%);
+        }
+        .gradient-animated {
+            background: linear-gradient(270deg, #FEB9E5, #9F6DFC, #7a1ff9, #FEB9E5);
+            background-size: 400% 400%;
+            animation: gradient-shift 8s ease infinite;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FEB9E5 0%, #9F6DFC 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .service-card-3d {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        .service-card-3d:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-12px) rotateX(5deg);
+            box-shadow: 0 25px 50px -12px rgba(159, 109, 252, 0.25);
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-text {
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .bento-card {
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-x-hidden relative">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div class="absolute top-[200px] right-[10%] size-[500px] bg-accent-purple/50 blur-[120px] rounded-full"></div>
+        <div class="absolute top-[800px] left-[5%] size-[420px] bg-accent-pink/70 blur-[110px] rounded-full"></div>
+        <div class="absolute top-[1200px] left-[5%] size-[400px] bg-accent-purple/50 blur-[100px] rounded-full"></div>
+        <div class="absolute top-[1800px] right-[8%] size-[460px] bg-accent-purple/50 blur-[115px] rounded-full"></div>
+        <div class="absolute top-[2400px] right-[15%] size-[450px] bg-accent-purple/50 blur-[110px] rounded-full"></div>
+        <div class="absolute top-[3000px] left-[12%] size-[380px] bg-accent-pink/70 blur-[105px] rounded-full"></div>
+    </div>
+    <header class="sticky top-0 z-50 w-full glass border-b border-primary/10">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-6 h-16 md:h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 md:gap-3">
+                <a href="#">
+                    <img src="./logo.svg" class="w-20 md:w-24 lg:w-28" alt="Logo">
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 lg:gap-10">
+                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
+                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
+                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./contacts.html">Контакты</a>
+                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./faq.html">Вопрос-ответ</a>
+            </nav>
+            <div class="flex items-center gap-3 md:gap-4">
+                <button
+                    class="gradient-bg px-4 md:px-6 py-2 md:py-2.5 rounded-lg md:rounded-xl text-white text-xs md:text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                    Записаться
+                </button>
+            </div>
+        </div>
+    </header>    
+    <main class="max-w-7xl mx-auto px-6 md:px-8 lg:px-6 max-[480px]:px-4 max-[320px]:px-3 py-12 md:py-16 max-[480px]:py-8 max-[320px]:py-6">
+        <section class="mb-24 md:mb-28 lg:mb-32 max-[480px]:mb-16 relative min-h-[85vh] md:min-h-[75vh] max-[480px]:min-h-[auto] flex items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center w-full">
+                <div class="space-y-6 md:space-y-8 max-[480px]:space-y-5 relative z-10">
+                    <div class="inline-flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full gradient-animated text-white text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-lg">
+                        <span class="material-symbols-outlined text-xs md:text-sm">auto_awesome</span>
+                        <span class="hidden sm:inline">Студия красоты</span>
+                        <span class="sm:hidden">Студия красоты</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] tracking-tight dark:text-white">
+                        Кабинет <span class="text-gradient">310</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl md:text-2xl font-light text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg">
+                        Территория, где искусство встречается с красотой. Перманентный макияж и нейл-сервис нового уровня.
+                    </p>
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 pt-2 md:pt-4">
+                        <button class="gradient-animated px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl text-white font-bold text-base md:text-lg flex items-center justify-center gap-2 md:gap-3 shadow-2xl hover:scale-105 transition-transform">
+                            Записаться сейчас
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                        <button class="px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl border-2 border-slate-300 dark:border-slate-700 font-bold text-base md:text-lg hover:border-primary hover:text-primary transition-all">
+                            Наши работы
+                        </button>
+                    </div>
+                    <div class="flex gap-6 md:gap-8 pt-4 md:pt-6">
+                        <div>
+                            <p class="text-3xl md:text-4xl font-black text-gradient">500+</p>
+                            <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">Довольных клиентов</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl md:text-4xl font-black text-gradient">5+</p>
+                            <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">Лет опыта</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl md:text-4xl font-black text-gradient">100%</p>
+                            <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">Стерильность</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative lg:h-[600px] md:h-[500px] h-[350px] max-[480px]:h-[300px]">
+                    <div class="absolute inset-0 grid grid-cols-2 gap-3 md:gap-4">
+                        <div class="space-y-3 md:space-y-4 floating">
+                            <div class="bento-card h-32 md:h-40 lg:h-48 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYZO5DyIWa0pCfDz662qMo1pL0qqDJtl8nr3nOGiV7jCJmWJOdlazfoR8zFpwLKu72up2pyeRr4_DRWbJ8FxHBH3DVBbvd0QgCihCcLnWkTqb06IAIJqQyw3ifMYYsL0X6pPgE1znJLhY0NwtZqsuEzXpnWj43zJ5dihBz15Iviq0a7abIUBAvACyWK-z7gUfkothzymVqhM1MW8HzcOqk6BHiiJ4KZZQXCsvGFOKUz2GAddcQ1nLu_VfxO93Qu02-h_NwbiM1KxQ" alt="Перманент" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="bento-card h-44 md:h-56 lg:h-64 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv9twUesAuYJaCTlwZiBhhnUaP7fiKG4-A8ClhNHPYqsCOEYEabVVGQonjsUd_CWvrppGDcBq2BRd9c4Kiq-K__FbeUIoXDGYqhgKmiDWb5PGV8LWaZYp4hWBT9iY0oYRWUs-2GnTXLj-dq6hrqOizEAh91qjmi_BAMNZOqyBWCyRHeAi2Wzdt5eP0jp8cAYaLDl0LvR-S1paHEnS-pdGDU3aH8yfEc6Sdf_1RAeNhI1ZN1P8mOklppZgzNXKDlgENvZoDMFZlSSw" alt="Маникюр" class="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                        <div class="space-y-3 md:space-y-4 pt-8 md:pt-12">
+                            <div class="bento-card h-44 md:h-56 lg:h-64 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKoK0nkxIPDHSXuDFo9eRTbxbcpR4kN-rudegvXGjJXCEiTXCbuW_EBk_IJ6I5_aPpiXRz_Klm150HCSLuofnCb2UeRawuUu8rRk96tqeFeouGml5bWCZeOl0K7tcuYWx7kjU-lvRloZBhfN-hEFvSzZfRDS56oSzpteWn-AaRQJyv5OFk4fFK2rki0RZjilpERZiWvHl18zVtbwFHWC51-gM-f1ISHhSXC0tw7Im68__0Ma7nb-LEHtm9JQ8zM6we7ZBuCyBTDRw" alt="Ресницы" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="bento-card h-32 md:h-40 lg:h-48 rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5o8dJxHaU2afrjR1saDcd58EmcGKvCRm3rYCwoCj6t5n-XPM9DJyTozPbuvLnde9I0M67EUlxxTx9loPtnuUjvG3ZSNqRLfit5p5ir8X4gfJaA47kdDEEylwqEXsJ7QQzuj4mAwoISCVv9IoD3MpF0gSE9rK3607pEQekTts3nRCwPYxWWhPPpN3UjXwEKFVd8ayko_qT73AMdOlmHG_XHawcwjRThozQb7uSYLJz-Sw5LddB-3cyVyn-X4NKz8wicVGne1dMQXs" alt="Интерьер" class="w-full h-full object-cover" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pointer-events-none absolute -top-10 -right-10 size-48 md:size-64 bg-accent-pink/20 blur-[80px] md:blur-[100px] rounded-full"></div>
+                    <div class="pointer-events-none absolute -bottom-10 -left-10 size-48 md:size-64 bg-accent-purple/20 blur-[80px] md:blur-[100px] rounded-full"></div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-24 md:mb-28 lg:mb-32 max-[480px]:mb-20 max-[320px]:mb-16" id="about">
+            <div class="relative rounded-2xl md:rounded-[3rem] overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-8 md:p-12 lg:p-16 max-[480px]:p-6">
+                <div class="absolute top-0 right-0 size-64 md:size-96 bg-accent-purple/40 blur-[80px] md:blur-[120px] rounded-full"></div>
+                <div class="absolute bottom-0 left-0 size-64 md:size-96 bg-accent-pink/70 blur-[80px] md:blur-[120px] rounded-full"></div>
+                <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="grid grid-cols-2 gap-4 md:gap-6">
+                            <div class="space-y-4 md:space-y-6">
+                                <div class="bento-card aspect-square rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYZO5DyIWa0pCfDz662qMo1pL0qqDJtl8nr3nOGiV7jCJmWJOdlazfoR8zFpwLKu72up2pyeRr4_DRWbJ8FxHBH3DVBbvd0QgCihCcLnWkTqb06IAIJqQyw3ifMYYsL0X6pPgE1znJLhY0NwtZqsuEzXpnWj43zJ5dihBz15Iviq0a7abIUBAvACyWK-z7gUfkothzymVqhM1MW8HzcOqk6BHiiJ4KZZQXCsvGFOKUz2GAddcQ1nLu_VfxO93Qu02-h_NwbiM1KxQ" alt="Работа мастера" class="w-full h-full object-cover" />
+                                </div>
+                                <div class="bento-card aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv9twUesAuYJaCTlwZiBhhnUaP7fiKG4-A8ClhNHPYqsCOEYEabVVGQonjsUd_CWvrppGDcBq2BRd9c4Kiq-K__FbeUIoXDGYqhgKmiDWb5PGV8LWaZYp4hWBT9iY0oYRWUs-2GnTXLj-dq6hrqOizEAh91qjmi_BAMNZOqyBWCyRHeAi2Wzdt5eP0jp8cAYaLDl0LvR-S1paHEnS-pdGDU3aH8yfEc6Sdf_1RAeNhI1ZN1P8mOklppZgzNXKDlgENvZoDMFZlSSw" alt="Маникюр" class="w-full h-full object-cover" />
+                                </div>
+                            </div>
+                            <div class="space-y-4 md:space-y-6 pt-8 md:pt-12">
+                                <div class="bento-card aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKoK0nkxIPDHSXuDFo9eRTbxbcpR4kN-rudegvXGjJXCEiTXCbuW_EBk_IJ6I5_aPpiXRz_Klm150HCSLuofnCb2UeRawuUu8rRk96tqeFeouGml5bWCZeOl0K7tcuYWx7kjU-lvRloZBhfN-hEFvSzZfRDS56oSzpteWn-AaRQJyv5OFk4fFK2rki0RZjilpERZiWvHl18zVtbwFHWC51-gM-f1ISHhSXC0tw7Im68__0Ma7nb-LEHtm9JQ8zM6we7ZBuCyBTDRw" alt="Ресницы" class="w-full h-full object-cover" />
+                                </div>
+                                <div class="bento-card aspect-square rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+                                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5o8dJxHaU2afrjR1saDcd58EmcGKvCRm3rYCwoCj6t5n-XPM9DJyTozPbuvLnde9I0M67EUlxxTx9loPtnuUjvG3ZSNqRLfit5p5ir8X4gfJaA47kdDEEylwqEXsJ7QQzuj4mAwoISCVv9IoD3MpF0gSE9rK3607pEQekTts3nRCwPYxWWhPPpN3UjXwEKFVd8ayko_qT73AMdOlmHG_XHawcwjRThozQb7uSYLJz-Sw5LddB-3cyVyn-X4NKz8wicVGne1dMQXs" alt="Интерьер" class="w-full h-full object-cover" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 space-y-6 md:space-y-8">
+                        <div class="inline-flex items-center gap-2 px-4 md:px-5 py-2 rounded-full bg-primary/10 text-primary text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                            <span class="material-symbols-outlined text-xs md:text-sm">workspace_premium</span>
+                            О нас
+                        </div>
+                        <h3 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight dark:text-white">
+                            Философия <span class="text-gradient">Кабинет 310</span>
+                        </h3>
+                        <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Мы создали пространство, где архитектура лица и эстетика рук возведены в ранг искусства.
+                        </p>
+                        <p class="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Каждая процедура — это сочетание передовых техник, премиальных материалов и индивидуального подхода. Мы работаем только с сертифицированными пигментами и материалами класса люкс, обеспечивая стерильность и долговечный результат.
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 md:gap-6 pt-4 md:pt-6">
+                            <div class="text-center">
+                                <div class="size-12 md:size-16 mx-auto mb-2 md:mb-3 rounded-xl md:rounded-2xl bg-gradient-to-br from-accent-pink to-accent-purple flex items-center justify-center text-white shadow-xl">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl">health_and_safety</span>
+                                </div>
+                                <p class="text-xs md:text-sm font-bold dark:text-white">100% стерильно</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="size-12 md:size-16 mx-auto mb-2 md:mb-3 rounded-xl md:rounded-2xl bg-gradient-to-br from-accent-purple to-primary flex items-center justify-center text-white shadow-xl">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl">verified</span>
+                                </div>
+                                <p class="text-xs md:text-sm font-bold dark:text-white">Premium качество</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="size-12 md:size-16 mx-auto mb-2 md:mb-3 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary to-accent-pink flex items-center justify-center text-white shadow-xl">
+                                    <span class="material-symbols-outlined text-2xl md:text-3xl">emoji_events</span>
+                                </div>
+                                <p class="text-xs md:text-sm font-bold dark:text-white">5+ лет опыта</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-24 md:mb-28 lg:mb-32 max-[480px]:mb-20 max-[320px]:mb-16" id="services">
+            <div class="text-center mb-12 md:mb-16 space-y-3 md:space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 md:px-5 py-2 rounded-full bg-primary/10 text-primary text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                    <span class="material-symbols-outlined text-xs md:text-sm">spa</span>
+                    Наши услуги
+                </div>
+                <h3 class="text-3xl sm:text-4xl md:text-5xl font-black dark:text-white">Что мы предлагаем</h3>
+                <p class="text-slate-500 max-w-2xl mx-auto text-base md:text-lg px-4">Выберите направление и откройте для себя новый уровень красоты</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="service-card-3d p-8 md:p-10 max-[480px]:p-6 rounded-2xl md:rounded-[2rem] group cursor-pointer">
+                    <div class="size-14 md:size-16 rounded-xl md:rounded-2xl gradient-animated text-white flex items-center justify-center mb-5 md:mb-6 shadow-xl group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl md:text-4xl">face_3</span>
+                    </div>
+                    <h4 class="text-xl md:text-2xl font-black mb-3 md:mb-4 dark:text-white group-hover:text-primary transition-colors">Перманентный макияж</h4>
+                    <p class="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-5 md:mb-6 leading-relaxed">Пудровые брови, акварельные губы, межресничка. Естественная красота на годы.</p>
+                    <div class="flex items-center gap-2 text-primary font-bold text-sm md:text-base group-hover:gap-4 transition-all">
+                        Подробнее
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </div>
+                </div>
+                <div class="service-card-3d p-8 md:p-10 max-[480px]:p-6 rounded-2xl md:rounded-[2rem] group cursor-pointer">
+                    <div class="size-14 md:size-16 rounded-xl md:rounded-2xl gradient-animated text-white flex items-center justify-center mb-5 md:mb-6 shadow-xl group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl md:text-4xl">back_hand</span>
+                    </div>
+                    <h4 class="text-xl md:text-2xl font-black mb-3 md:mb-4 dark:text-white group-hover:text-primary transition-colors">Маникюр & Педикюр</h4>
+                    <p class="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-5 md:mb-6 leading-relaxed">Укрепление, наращивание, дизайн. Безупречные руки — ваша визитная карточка.</p>
+                    <div class="flex items-center gap-2 text-primary font-bold text-sm md:text-base group-hover:gap-4 transition-all">
+                        Подробнее
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </div>
+                </div>
+                <div class="service-card-3d p-8 md:p-10 max-[480px]:p-6 rounded-2xl md:rounded-[2rem] group cursor-pointer md:col-span-2 lg:col-span-1">
+                    <div class="size-14 md:size-16 rounded-xl md:rounded-2xl gradient-animated text-white flex items-center justify-center mb-5 md:mb-6 shadow-xl group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl md:text-4xl">visibility</span>
+                    </div>
+                    <h4 class="text-xl md:text-2xl font-black mb-3 md:mb-4 dark:text-white group-hover:text-primary transition-colors">Ресницы & Брови</h4>
+                    <p class="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-5 md:mb-6 leading-relaxed">Ламинирование, оформление. Выразительный взгляд без макияжа.</p>
+                    <div class="flex items-center gap-2 text-primary font-bold text-sm md:text-base group-hover:gap-4 transition-all">
+                        Подробнее
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-24 md:mb-28 lg:mb-32 max-[480px]:mb-20 max-[320px]:mb-16" id="why-us">
+            <div class="relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
+                    <div class="relative order-2 lg:order-1">
+                        <div class="absolute -top-10 -left-10 size-32 md:size-40 gradient-bg rounded-full opacity-20 blur-3xl"></div>
+                        <img alt="Сервис в студии Cabinet 310"
+                            class="rounded-2xl md:rounded-[2.5rem] shadow-2xl relative z-10 w-full object-cover aspect-[4/5]"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbP5eqjUkfFVfIH8HFT1kh5hhEQTlJ3PRPBbLYXlyRu8ZdO2Ee2jpZ0Bi5pWllFY2zrpra9G6p3yAt59h8WvJLxmWnO9dWTullMcWFxos6JpWSWRUqGYWM_c1s4fo6stJ-IKDAJvf6Mnt-qOo6oKjYH2O_7KJCZZutaTg4IehYKV32vHLlyjxpdlBA4_5G3t3-BC9YNVusFBdxTz-8l2H_Az5Zs3ak40bxVP7iF9AMaEynjIJz_lBvYT3g0lBybHAtIqGfN7T3wbc" />
+                    </div>
+                    <div class="space-y-6 md:space-y-8 order-1 lg:order-2">
+                        <div class="inline-flex items-center gap-2 px-4 md:px-5 py-2 rounded-full bg-primary/10 text-primary text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                            <span class="material-symbols-outlined text-xs md:text-sm">star</span>
+                            Преимущества
+                        </div>
+                        <h3 class="text-3xl sm:text-4xl md:text-5xl font-black dark:text-white">Почему выбирают нас</h3>
+                        <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Мы создали условия, в которых красота рождается в комфорте, а результат превосходит ожидания.
+                        </p>
+                        <div class="space-y-5 md:space-y-6">
+                            <div class="flex gap-4 md:gap-6 items-start group">
+                                <div class="size-12 md:size-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-accent-pink to-accent-purple flex items-center justify-center text-white shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-xl md:text-2xl">health_and_safety</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-black text-base md:text-lg mb-1 md:mb-2 dark:text-white">Безопасность 100%</h5>
+                                    <p class="text-sm md:text-base text-slate-600 dark:text-slate-400">Многоступенчатая стерилизация инструментов и использование только одноразовых расходных материалов.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 md:gap-6 items-start group">
+                                <div class="size-12 md:size-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-accent-purple to-primary flex items-center justify-center text-white shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-xl md:text-2xl">verified</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-black text-base md:text-lg mb-1 md:mb-2 dark:text-white">Premium-качество</h5>
+                                    <p class="text-sm md:text-base text-slate-600 dark:text-slate-400">Работаем на сертифицированных пигментах и люксовых брендах гель-лаков.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 md:gap-6 items-start group">
+                                <div class="size-12 md:size-14 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary to-accent-pink flex items-center justify-center text-white shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-xl md:text-2xl">workspace_premium</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-black text-base md:text-lg mb-1 md:mb-2 dark:text-white">Уровень экспертов</h5>
+                                    <p class="text-sm md:text-base text-slate-600 dark:text-slate-400">Наши мастера постоянно повышают квалификацию и владеют топовыми техниками индустрии.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-slate-900 text-white py-16 ">
+        <div class="max-w-7xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-6">
+                <div class="flex items-center gap-3">
+                    <a href="#">
+                        <img src="./logo.svg" style="width: 100px;">
+                    </a>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Премиальная студия эстетики в центре города. Мы создаем безупречные образы, подчеркивая вашу индивидуальность через искусство перманента и нейл-сервиса.
+                </p>
+            </div>
+            <div>
+                <h6 class="font-bold mb-6 text-slate-200">Услуги</h6>
+                <ul class="space-y-4 text-sm text-slate-400">
+                    <li><a class="hover:text-white transition-colors" href="#services">Перманентный макияж</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#services">Маникюр и педикюр</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#services">Ламинирование ресниц</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#services">Оформление бровей</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="font-bold mb-6 text-slate-200">Информация</h6>
+                <ul class="space-y-4 text-sm text-slate-400">
+                    <li><a class="hover:text-white transition-colors" href="#about">О нашей студии</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#why-us">Преимущества</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Подарочные сертификаты</a></li>
+                    <li><a class="hover:text-white transition-colors" href="#">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="font-bold mb-6 text-slate-200">Свяжитесь с нами</h6>
+                <div class="space-y-4 text-sm text-slate-400">
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-primary">location_on</span> 
+                        Ваш город, адрес студии
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-primary">call</span> 
+                        +7 (___) ___-__-__
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-primary">schedule</span> 
+                        Ежедневно: 10:00 — 21:00
+                    </p>
+                    <div class="flex gap-4 pt-4">
+                        <a title="Мы в Telegram" class="size-8 rounded bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">send</span>
+                        </a>
+                        <a title="Наш Instagram" class="size-8 rounded bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <span class="material-symbols-outlined text-lg">camera_alt</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 border-t border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <p>© 2026 Cabinet 310. Все права защищены.</p>
+            <p>С любовью к вашей красоте ✨</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
