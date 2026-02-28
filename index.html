@@ -908,24 +908,6 @@
                 });
             });
 
-            // Анимация логотипа
-            anime({
-                targets: 'header img',
-                opacity: [0, 1],
-                translateX: [-50, 0],
-                duration: 1000,
-                easing: 'easeOutExpo'
-            });
-
-            // Анимация header кнопки
-            anime({
-                targets: 'header button',
-                opacity: [0, 1],
-                translateX: [50, 0],
-                duration: 1000,
-                easing: 'easeOutExpo'
-            });
-
             // Волновая анимация для иконок Material Symbols
             const icons = document.querySelectorAll('.material-symbols-outlined');
             anime({
@@ -936,6 +918,75 @@
                 delay: anime.stagger(50, {start: 1500}),
                 easing: 'easeOutElastic(1, .8)'
             });
+
+            // Анимация для grid иконок в секции "О нас"
+            const aboutIcons = document.querySelectorAll('#about .grid.grid-cols-3 > div');
+            const aboutIconsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            scale: [0.5, 1],
+                            rotateY: [90, 0],
+                            duration: 1000,
+                            easing: 'easeOutElastic(1, .6)'
+                        });
+                        aboutIconsObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            aboutIcons.forEach(icon => {
+                icon.style.opacity = '0';
+                aboutIconsObserver.observe(icon);
+            });
+
+            // Анимация изображений в секции "О нас"
+            const aboutImages = document.querySelectorAll('#about .bento-card');
+            const aboutImagesObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            scale: [0.9, 1],
+                            rotate: [-5, 0],
+                            duration: 1200,
+                            easing: 'easeOutElastic(1, .8)'
+                        });
+                        aboutImagesObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            aboutImages.forEach(img => {
+                img.style.opacity = '0';
+                aboutImagesObserver.observe(img);
+            });
+
+            // Анимация текста в параграфах при скролле
+            const paragraphs = document.querySelectorAll('section p');
+            const paragraphObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            translateX: [-20, 0],
+                            duration: 800,
+                            easing: 'easeOutQuad'
+                        });
+                        paragraphObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            paragraphs.forEach(p => {
+                p.style.opacity = '0';
+                paragraphObserver.observe(p);
+            });
+
         });
     </script>
 </body>
