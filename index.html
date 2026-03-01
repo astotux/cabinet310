@@ -236,27 +236,54 @@
         <div class="absolute top-[4200px] left-[8%] size-[400px] bg-accent-pink/70 blur-[105px] rounded-full -z-10"></div>
         <div class="absolute top-[4900px] right-[5%] size-[380px] bg-accent-purple/50 blur-[105px] rounded-full -z-10"></div>
     </div>
-    <header class="sticky top-0 z-50 w-full glass border-b border-primary/10">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-6 h-16 md:h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2 md:gap-3">
-                <a href="#">
-                    <img src="./logo.svg" class="w-20 md:w-24 lg:w-28" alt="Logo">
-                </a>
-            </div>
-            <nav class="hidden md:flex items-center gap-6 lg:gap-10">
-                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
-                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
-                <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./contacts.html">Контакты</a>
-            </nav>
-            <div class="flex items-center gap-3 md:gap-4">
-                <button
-                    class="gradient-bg px-4 md:px-6 py-2 md:py-2.5 rounded-lg md:rounded-xl text-white text-xs md:text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
-                    Записаться
-                </button>
+    <header class="sticky top-0 z-50 w-full">
+        <!-- Десктоп версия -->
+        <div class="hidden md:block glass border-b border-primary/10">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-6 h-16 md:h-20 flex items-center justify-between">
+                <div class="flex items-center gap-2 md:gap-3">
+                    <a href="#">
+                        <img src="./logo.svg" class="w-20 md:w-24 lg:w-28" alt="Logo">
+                    </a>
+                </div>
+                <nav class="flex items-center gap-6 lg:gap-10">
+                    <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
+                    <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
+                    <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./contacts.html">Контакты</a>
+                </nav>
+                <div class="flex items-center gap-3 md:gap-4">
+                    <button
+                        class="gradient-bg px-4 md:px-6 py-2 md:py-2.5 rounded-lg md:rounded-xl text-white text-xs md:text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                        Записаться
+                    </button>
+                </div>
             </div>
         </div>
+
+        <!-- Мобильная версия - логотип сверху -->
+        <div class="md:hidden p-3 w-100 flex justify-center">
+            <div class="glass rounded-2xl px-4 py-3 inline-flex items-center justify-center">
+                <a href="#">
+                    <img src="./logo.svg" class="w-24" alt="Logo">
+                </a>
+            </div>
+        </div>
+
+        <!-- Мобильная версия - навигация и кнопка внизу -->
+        <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex flex-col gap-3 p-3">
+            <!-- Кнопка записаться -->
+            <button class="gradient-bg rounded-2xl px-6 py-3 text-sm font-bold text-white shadow-lg hover:opacity-90 transition-opacity w-full">
+                Записаться
+            </button>
+
+            <!-- Навигация -->
+            <nav class="glass rounded-2xl px-4 py-3 flex items-center justify-around">
+                <a class="text-xs font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
+                <a class="text-xs font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
+                <a class="text-xs font-semibold hover:text-primary transition-colors" href="./contacts.html">Контакты</a>
+            </nav>
+        </div>
     </header>    
-    <main class="max-w-7xl mx-auto px-6 md:px-8 lg:px-6 max-[480px]:px-4 max-[320px]:px-3 py-12 md:py-16 max-[480px]:py-8 max-[320px]:py-6  overflow-hidden">
+    <main class="max-w-7xl mx-auto px-6 md:px-8 lg:px-6 max-[480px]:px-4 max-[320px]:px-3 py-12 md:py-16 max-[480px]:py-8 max-[320px]:py-6 max-[767px]:pb-32 overflow-hidden">
         <section class="mb-24 md:mb-28 lg:mb-32 max-[480px]:mb-16 relative min-h-[85vh] md:min-h-[75vh] max-[480px]:min-h-[auto] flex items-center">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center w-full">
                 <div class="space-y-6 md:space-y-8 max-[480px]:space-y-5 relative z-10">
@@ -276,9 +303,9 @@
                             Записаться сейчас
                             <span class="material-symbols-outlined">arrow_forward</span>
                         </button>
-                        <button class="glass px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:bg-white/80 transition-all">
+                        <a href="#portfolio" class="glass px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:bg-white/80 transition-all">
                             Наши работы
-                        </button>
+                        </a>
                     </div>
                     <div class="glass px-8 md:px-10 py-4 md:py-5 rounded-xl md:rounded-2xl flex justify-center gap-6 md:gap-8 pt-4 md:pt-6">
                         <div>
