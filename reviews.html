@@ -93,27 +93,53 @@
         <div class="absolute top-[3200px] right-[15%] size-[460px] bg-accent-pink/12 blur-[115px] rounded-full"></div>
         <div class="absolute top-[3800px] left-[8%] size-[390px] bg-accent-purple/14 blur-[108px] rounded-full"></div>
     </div>
-    <header class="sticky top-0 z-50 w-full glass border-b border-primary/10">
-        <div class="max-w-7xl mx-auto px-6 max-[480px]:px-4 max-[320px]:px-3 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <a href="#">
-                    <img src="./logo.svg" style="width: 100px;">
-                </a>
-            </div>
-            <nav class="hidden md:flex items-center gap-10">
-                <a class="text-sm font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
-                <a class="text-sm font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
-                <a class="text-sm font-semibold hover:text-primary transition-colors"
-                    href="./contacts.html">Контакты</a>
-            </nav>
-            <div class="flex items-center gap-4">
-                <button
-                    class="gradient-bg px-6 py-2.5 rounded-xl text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
-                    Записаться
-                </button>
+    <header class="sticky top-0 z-50 w-full">
+        <!-- Десктоп версия -->
+        <div class="hidden md:block glass border-b border-primary/10">
+            <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-6 h-16 md:h-20 flex items-center justify-between">
+                <div class="flex items-center gap-2 md:gap-3">
+                    <a href="#">
+                        <img src="./logo.svg" class="w-20 md:w-24 lg:w-28" alt="Logo">
+                    </a>
+                </div>
+                <nav class="flex items-center gap-6 lg:gap-10">
+                    <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
+                    <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
+                    <a class="text-xs lg:text-sm font-semibold hover:text-primary transition-colors" href="./contacts.html">Контакты</a>
+                </nav>
+                <div class="flex items-center gap-3 md:gap-4">
+                    <button
+                        class="gradient-bg px-4 md:px-6 py-2 md:py-2.5 rounded-lg md:rounded-xl text-white text-xs md:text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                        Записаться
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
+
+        <!-- Мобильная версия - логотип сверху -->
+        <div class="md:hidden p-3 w-100 flex justify-center">
+            <div class="glass rounded-2xl px-4 py-3 inline-flex items-center justify-center">
+                <a href="#">
+                    <img src="./logo.svg" class="w-24" alt="Logo">
+                </a>
+            </div>
+        </div>
+
+        <!-- Мобильная версия - навигация и кнопка внизу -->
+        <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex flex-col gap-3 p-3">
+            <!-- Кнопка записаться -->
+            <button class="gradient-bg rounded-2xl px-6 py-3 text-sm font-bold text-white shadow-lg hover:opacity-90 transition-opacity w-full">
+                Записаться
+            </button>
+
+            <!-- Навигация -->
+            <nav class="glass rounded-2xl px-4 py-3 flex items-center justify-around">
+                <a class="text-xs font-semibold hover:text-primary transition-colors" href="./index.html">Главная</a>
+                <a class="text-xs font-semibold hover:text-primary transition-colors" href="./reviews.html">Отзывы</a>
+                <a class="text-xs font-semibold hover:text-primary transition-colors" href="./contacts.html">Контакты</a>
+            </nav>
+        </div>
+    </header>    
     <div class="relative flex flex-col w-full overflow-x-hidden">
         <div class="layout-container flex flex-col grow">
             <main
